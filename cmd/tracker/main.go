@@ -10,13 +10,14 @@ import (
 )
 
 func main() {
+	// Создание объекта personaldata
 	person := personaldata.Personal{
 		Name:   "Витя",
 		Weight: 84.6,
 		Height: 1.87,
 	}
 
-	// дневная активность
+	// Дневная активность
 	input := []string{
 		"678,0h50m",
 		"792,1h14m",
@@ -29,15 +30,16 @@ func main() {
 
 	fmt.Println("Активность в течение дня")
 
+	// Инициализация daySteps с персональными данными
 	daySteps := daysteps.DaySteps{
 		Personal: person,
 	}
 
+	// Вывод информации о дневной активности
 	daySteps.Print()
-
 	actioninfo.Info(input, &daySteps)
 
-	// // тренировки
+	// Тренировки
 	actions := []string{
 		"3456,Ходьба,3h00m",
 		"something is wrong",
@@ -48,14 +50,14 @@ func main() {
 		"15392,Бег,0h45m",
 	}
 
+	// Инициализация тренировки с персональными данными
 	trains := trainings.Training{
 		Personal: person,
 	}
 
 	fmt.Println("Журнал тренировок")
 
+	// Вывод информации о тренировках
 	trains.Print()
-
 	actioninfo.Info(actions, &trains)
-
 }
